@@ -132,7 +132,7 @@ $("orderForm").addEventListener("submit", async (e) => {
   if (f.address.value.trim().length < 5) { err.textContent = "Enter your delivery address."; f.address.focus(); return; }
   const btn = $("placeOrder"); btn.disabled = true; btn.textContent = "Sending…";
   try {
-    if (await sendOrder(buildOrderPayload(f))) {
+    if (await sendOrder(buildOrderPayload({ name: f.name.value, phone: f.phone.value, address: f.address.value, comment: f.comment.value }))) {
       cart = []; update(); f.reset(); show("done");
     } else err.textContent = "Order could not be sent. Please try again.";
   } catch { err.textContent = "No connection. Please try again."; }
