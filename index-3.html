@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA EATS — Demo Project</title>
+<meta name="description" content="NOVA EATS is a fictional demo restaurant showing a modern online ordering experience.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="demo-bar">DEMO PROJECT — fictional brand, not a real restaurant</div>
+
+<header class="site-header">
+  <a href="#home" class="logo">NOVA<span>EATS</span></a>
+  <nav id="nav" aria-label="Main">
+    <a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <button class="cart-btn" id="openCart" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>FAST FOOD.<br>BIG FLAVOR.</h1>
+      <p>Freshly prepared meals, delivered fast.</p>
+      <div class="cta-row">
+        <a class="btn" href="#menu">Order Now</a>
+        <a class="btn ghost" href="#menu">View Menu</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">🍔<small>Photo placeholder</small></div>
+  </section>
+
+  <section class="section" id="menu">
+    <h2>Menu</h2>
+    <div class="grid" id="menuGrid"></div>
+  </section>
+
+  <section class="section about" id="about">
+    <h2>Good food doesn’t need to be complicated.</h2>
+    <p>NOVA EATS is a fictional demo restaurant created to demonstrate a modern online ordering experience.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <ul class="contact">
+      <li>Phone: <a href="tel:+998900000000">+998 90 000 00 00</a></li>
+      <li>Address: Demo Street 10, Uzbekistan</li>
+      <li>Working hours: 10:00–23:00</li>
+      <li>Instagram: <a href="#contact">@nova.eats.demo (placeholder)</a></li>
+      <li>Telegram: <a href="#contact">@nova_eats_demo (placeholder)</a></li>
+      <li>Google Maps: <a href="#contact">map link (placeholder)</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer><strong>NOVA EATS</strong><p>DEMO PROJECT — Not a real restaurant.</p></footer>
+
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <div class="drawer-head"><h3 id="drawerTitle">Your cart</h3><button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button></div>
+
+  <div id="cartView">
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="totals">
+      <div><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+      <div class="total"><span>Total</span><span id="total">$0.00</span></div>
+    </div>
+    <button class="btn full" id="checkoutBtn">Checkout</button>
+  </div>
+
+  <form id="orderForm" hidden novalidate>
+    <label for="name">Ism</label>
+    <input id="name" name="name" autocomplete="name" required>
+    <label for="phone">Telefon raqam</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+998 90 000 00 00" required>
+    <label for="address">Yetkazib berish manzili</label>
+    <input id="address" name="address" autocomplete="street-address" required>
+    <label for="comment">Izoh</label>
+    <textarea id="comment" name="comment" rows="2"></textarea>
+    <div class="summary" id="summary"></div>
+    <p class="error" id="formError" role="alert"></p>
+    <button class="btn full" type="submit" id="placeOrder">Place Order</button>
+    <button class="btn ghost full" type="button" id="backToCart">Back to cart</button>
+  </form>
+
+  <div id="confirmView" hidden>
+    <p class="confirm" role="status">Order received! We’ll contact you shortly.</p>
+    <button class="btn full" id="newOrder">Back to menu</button>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
